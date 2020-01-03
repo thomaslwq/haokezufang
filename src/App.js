@@ -9,6 +9,7 @@ export default class TabBarExample extends React.Component {
       selectedTab: 'redTab',
       hidden: false,
       fullScreen: false,
+      
     };
   }
 renderContent(pageText) {
