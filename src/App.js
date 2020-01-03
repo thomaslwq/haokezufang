@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { TabBar } from 'antd-mobile';
 
+
 export default class TabBarExample extends React.Component {
   constructor(props) {
     super(props);
@@ -10,10 +11,9 @@ export default class TabBarExample extends React.Component {
       fullScreen: false,
     };
   }
-
-  renderContent(pageText) {
-    return (
-      <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
+renderContent(pageText) {
+  return (
+    <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
         <div style={{ paddingTop: 60 }}>Clicked “{pageText}” tab， show “{pageText}” information</div>
         <a style={{ display: 'block', marginTop: 40, marginBottom: 20, color: '#108ee9' }}
           onClick={(e) => {
