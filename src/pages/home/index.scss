@@ -1,0 +1,32 @@
+.hk_home {
+    height: 100vh;
+    background-color: white;
+    position: relative;
+
+    .hk_swiper {
+        
+    }
+
+    .hk_nav {
+        display: flex;
+        background-color: white;
+        padding:10px;
+        .hk_nav_item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            text-align: center;
+            .item_wrrapper{
+                img {
+                    width: 80%;
+                    margin: auto;
+                }
+                p {}
+
+            }
+        }
+
+    }
+
+}

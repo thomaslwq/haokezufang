@@ -8,9 +8,7 @@ import { withRouter } from "react-router-dom"
     用來顯示底部的tabbar
 */
  class HKLayout extends Component {
-    constructor(props) {
-        super(props);
-    }
+
     render() {
         return (
             <div style={{ position: 'fixed', height: '100%', width: '100%', top: 0 }}>
