@@ -41,7 +41,7 @@ export default class Index extends Component {
                     {/* 
                         首頁輪播圖 開始
                     */}
-                    <div className="hk_swiper">
+                    <div className={"hk_swiper"}>
                         <Carousel
                             autoplay={true}
                             infinite
