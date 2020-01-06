@@ -23,7 +23,8 @@ export default class Index extends Component {
             { id: 2, imgSrc: Nav2, title: "合租" },
             { id: 3, imgSrc: Nav3, title: "地圖找房" },
             { id: 4, imgSrc: Nav4, title: "去出租" },
-        ]
+        ],
+        news: []
     }
 
     componentDidMount() {
@@ -31,6 +32,13 @@ export default class Index extends Component {
         axios.get("/home/swiper").then(res => {
             this.setState({
                 swiper_list: res.body
+            })
+        })
+        //2. 咨詢列表
+        axios.get("/home/news").then(res => {
+            console.log(res.body)
+            this.setState({
+                news: res.body
             })
         })
     }
@@ -81,6 +89,37 @@ export default class Index extends Component {
 
                     </div>
 
+                    {/* 首頁的資訊列表開始 */}
+                    <div className="hk_news">
+                        <div className="hk_news_title">
+                            <span>最新資訊</span>
+                        </div>
+                        <div className="hk_news_content">
+                            {
+                                this.state.news.map(v =>
+                                    <div className="hk_news_item" key={v.id}>
+                                        <div className="hk_news_img_wrapper">
+                                            <img src={API_URL + v.imgSrc} alt=""></img>
+                                        </div>
+                                        <div className="hk_news_item_info">
+                                            <div className="hk_news_item_info_top">
+                                                <span>{v.title}</span>
+                                            </div>
+                                            <div className="hk_news_item_info_bottom">
+                                                <div className="hk_news_item_info_from">{v.from}</div>
+                                                <div className="hk_news_item_info_to">{v.date}</div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                )
+                            }
+
+                        </div>
+                    </div>
+                    {/* 首頁的資訊列表結束 */}
 
                 </div>
             </Fragment>
