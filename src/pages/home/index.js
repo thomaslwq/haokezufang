@@ -24,6 +24,7 @@ export default class Index extends Component {
             { id: 3, imgSrc: Nav3, title: "地圖找房" },
             { id: 4, imgSrc: Nav4, title: "去出租" },
         ],
+        home_group: [],
         news: []
     }
 
@@ -36,11 +37,19 @@ export default class Index extends Component {
         })
         //2. 咨詢列表
         axios.get("/home/news").then(res => {
-            console.log(res.body)
             this.setState({
                 news: res.body
             })
         })
+        //3. 租房小組
+        axios.get("/home/groups").then(res => {
+            console.log(res.body)
+            this.setState({
+                home_group: res.body
+            })
+        })
+
+
     }
     render() {
         return (
@@ -89,6 +98,36 @@ export default class Index extends Component {
 
                     </div>
 
+                    {/* 租房小組開始 */}
+                    <div className="hk_group">
+                        <div className="hk_group_title">
+                            <span>租房小組</span>
+                            <span>更多</span>
+                        </div>
+                        <div className="hk_group_content">
+                            {
+                                this.state.home_group.map( v => 
+                                    <div className="hk_group_item" key={v.id}>
+                                        <div className="hk_group_item_desc">
+                                            <div className="hk_group_item_titleone">
+                                                { v.title}
+                                            </div>
+                                            <div className="hk_group_item_titletwo">
+                                                { v.desc}
+                                            </div>
+                                        </div>
+                                        <div className="hk_group_imageWrapper">
+                                            <img src={ API_URL + v.imgSrc }></img>
+                                        </div>
+                                    </div>
+                                )
+                            }
+
+                        </div>
+                    </div>
+                    {/* 租房小組結束 */}
+
+
                     {/* 首頁的資訊列表開始 */}
                     <div className="hk_news">
                         <div className="hk_news_title">
@@ -120,6 +159,7 @@ export default class Index extends Component {
                         </div>
                     </div>
                     {/* 首頁的資訊列表結束 */}
+
 
                 </div>
             </Fragment>
