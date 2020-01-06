@@ -56,7 +56,6 @@ export default class Index extends Component {
             <Fragment>
                 <div className="hk_home">
 
-
                     {/* 
                         首頁輪播圖 開始
                     */}
