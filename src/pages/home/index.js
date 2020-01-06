@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from "../../utils/request"
+import SearchInput from "../../components/SearchInput"
 //2. 加載輪播圖組件 
 import { Carousel } from 'antd-mobile';
 import { API_URL } from "../../utils/urls"
@@ -37,14 +38,12 @@ export default class Index extends Component {
         })
         //2. 咨詢列表
         axios.get("/home/news").then(res => {
-            console.log(res.body)
             this.setState({
                 news: res.body
             })
         })
         //3. 租房小組
         axios.get("/home/groups").then(res => {
-            console.log(res.body)
             this.setState({
                 home_group: res.body
             })
@@ -56,10 +55,15 @@ export default class Index extends Component {
         return (
             <Fragment>
                 <div className="hk_home">
+
+
                     {/* 
                         首頁輪播圖 開始
                     */}
                     <div className={"hk_swiper"}>
+                        <div className="hk_search_input">
+                            <SearchInput />
+                        </div>
                         <Carousel
                             autoplay={true}
                             infinite
@@ -107,18 +111,18 @@ export default class Index extends Component {
                         </div>
                         <div className="hk_group_content">
                             {
-                                this.state.home_group.map( v => 
+                                this.state.home_group.map(v =>
                                     <div className="hk_group_item" key={v.id}>
                                         <div className="hk_group_item_desc">
                                             <div className="hk_group_item_titleone">
-                                                { v.title}
+                                                {v.title}
                                             </div>
                                             <div className="hk_group_item_titletwo">
-                                                { v.desc}
+                                                {v.desc}
                                             </div>
                                         </div>
                                         <div className="hk_group_imageWrapper">
-                                            <img src={ API_URL + v.imgSrc }></img>
+                                            <img src={API_URL + v.imgSrc}></img>
                                         </div>
                                     </div>
                                 )
