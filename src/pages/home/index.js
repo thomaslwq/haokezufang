@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from "../../utils/request"
+import SearchInput from "../../components/SearchInput"
 //2. 加載輪播圖組件 
 import { Carousel } from 'antd-mobile';
 import { API_URL } from "../../utils/urls"
@@ -37,14 +38,12 @@ export default class Index extends Component {
         })
         //2. 咨詢列表
         axios.get("/home/news").then(res => {
-            console.log(res.body)
             this.setState({
                 news: res.body
             })
         })
         //3. 租房小組
         axios.get("/home/groups").then(res => {
-            console.log(res.body)
             this.setState({
                 home_group: res.body
             })
@@ -56,6 +55,10 @@ export default class Index extends Component {
         return (
             <Fragment>
                 <div className="hk_home">
+                    <div className="hk_search_input">
+                        <SearchInput/>
+                    </div>
+
                     {/* 
                         首頁輪播圖 開始
                     */}

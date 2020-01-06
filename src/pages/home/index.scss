@@ -3,6 +3,12 @@
     background-color: white;
     position: relative;
 
+    .hk_search_input{
+        position:fixed;
+        width: 100%;
+        top:20px;
+        z-index: 1000;
+    }
     .hk_swiper {}
 
     .hk_nav {
@@ -138,7 +144,8 @@
                     align-items: center;
                     flex:1;
                     img {
-                        
+                        width: 50px;
+                        padding: 5px;
                     }
                 }
             }

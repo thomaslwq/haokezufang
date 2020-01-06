@@ -13,7 +13,6 @@ Axios.interceptors.request.use(function (config) {
   Toast.loading("loading...",60*60*60,null);
   return config;
 }, function (error) {
-
   return Promise.reject(error);
 });
 
