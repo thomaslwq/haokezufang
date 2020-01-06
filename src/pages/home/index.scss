@@ -3,34 +3,91 @@
     background-color: white;
     position: relative;
 
-    .hk_swiper {
-       
-        
-    }
+    .hk_swiper {}
 
     .hk_nav {
         display: flex;
         background-color: white;
-        padding:10px;
+        padding: 10px;
+
         .hk_nav_item {
             display: flex;
             align-items: center;
             justify-content: center;
             flex: 1;
             text-align: center;
-            .item_wrrapper{
+
+            .item_wrrapper {
                 img {
                     width: 80%;
                     margin: auto;
                 }
+
                 p {}
 
             }
         }
 
     }
-    .hidden{
-        
+
+    .hk_news {
+        background-color: white;
+
+        .hk_news_title {
+            padding: 5px;
+
+            span {
+                font-size: 18px;
+                font-weight: 600;
+
+            }
+        }
+
+        .hk_news_content {
+
+            .hk_news_item {
+                display: flex;
+                border-bottom: 1px solid #ccc;
+                .hk_news_img_wrapper {
+                    padding: 10px;
+                    flex: 1;
+
+                    img {
+                        width: 80%;
+                        margin: 0 auto;
+                    }
+                }
+
+                .hk_news_item_info {
+                    flex: 6;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .hk_news_item_info_top {
+                        padding: 5px;
+                        text-align: center;
+                        span {
+                            font-size: 18px;
+                            font-weight: 600;
+                        }
+                    }
+                    .hk_news_item_info_bottom {
+                        display: flex;
+                        justify-content: space-between;
+                        color:#ccc;
+                        .hk_news_item_info_from {
+                            padding: 5px;
+                        }
+
+                        .hk_news_item_info_to {
+                            padding: 5px;
+                        }
+                    }
+                }
+
+
+            }
+        }
     }
 
 
