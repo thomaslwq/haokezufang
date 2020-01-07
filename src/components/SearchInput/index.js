@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react'
 import { withRouter } from "react-router-dom"
 import "./index.scss"
- class Index extends Component {
+import { connect } from "react-redux"
+class Index extends Component {
     render() {
         return (
             <Fragment>
@@ -11,7 +12,7 @@ import "./index.scss"
                     }
                     }>
                         <div className="search_input_city">
-                            <span>廣州</span>
+                            <span>{this.props.cityName}</span>
                             <i className="iconfont icon-arrow"></i>
                         </div>
                         <div className="search_input_inp">
@@ -30,4 +31,10 @@ import "./index.scss"
         )
     }
 }
-export default withRouter(Index)
+const mapStateToProps = (state) => {
+    return {
+        cityName: state.cityName
+    }
+}
+
+export default connect(mapStateToProps, null)(withRouter(Index))

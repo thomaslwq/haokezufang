@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 //2. 引入需要路由組件
-import { HashRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route } from "react-router-dom"
 //3. 引入需要顯示的組件
 import Home from "./pages/home"
 import Info from "./pages/info"
@@ -8,11 +8,24 @@ import List from "./pages/list"
 import Profile from "./pages/profile"
 import CityList from "./pages/CityList"
 import BMap from "./pages/BMap"
+import Test from "./pages/Test"
 //5. 引入 一個HKLayout 作我們的tabbar
 import HKLayout from "./components/HKLaout"
+import store  from "./store"
+import { setCityNameAction } from "./store/actionCreator"
+
 
 //1. rcc 新建一個 App 組件
 export default class App extends Component {
+
+  componentDidMount(){
+    var myCity = new window.BMap.LocalCity();
+    myCity.get(function(result){
+      let  cityName = result.name;
+      store.dispatch(setCityNameAction(cityName));
+    });
+
+  }
   render() {
     return (
       <Fragment>
@@ -26,6 +39,7 @@ export default class App extends Component {
           <Route path="/profile" exact render={() => <HKLayout><Profile /></HKLayout>} />
           <Route path="/citylist" exact render={() => <CityList/>} />
           <Route path="/bmap" exact render={() =><BMap/>} />
+          <Route path="/test" exact render={() =><Test/>} />
         </Router>
       </Fragment>
     )

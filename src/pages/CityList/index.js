@@ -4,6 +4,10 @@ import { NavBar, Icon } from 'antd-mobile';
 import { AutoSizer, List } from 'react-virtualized';
 import 'react-virtualized/styles.css'; // only needs to be imported once
 import "./index.scss"
+import  store from "../../store"
+import { setCityNameAction } from "../../store/actionCreator"
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
 /* 
     城市選擇
     1. 構造城市選擇需要的數據結構
@@ -20,7 +24,7 @@ import "./index.scss"
     b. 
     key_arrs = ["#","熱","A","B"....."Z"]
 */
-export default class index extends Component {
+ class Index extends Component {
 
     state = {
         all_cities: [],
@@ -50,7 +54,7 @@ export default class index extends Component {
         // ]
         let hot_cities = (await axios.get("/area/hot")).body;
         let all_cities = [
-            { "當前城市": ["廣州"] },
+            { "當前城市": [this.props.cityName] },
             { "熱門城市": hot_cities.map(v => v.label) }
         ]
         let cityList = (await axios.get("/area/city?level=1")).body;
@@ -75,7 +79,7 @@ export default class index extends Component {
             v 的值 
             label: "佛山"
             pinyin: "foshan"
-            short: "fs" F
+            short: "fs" 
             value: "AREA|0ee75d32-8a95-3f73"
         */
         cityList.map(v => {
@@ -122,7 +126,11 @@ export default class index extends Component {
             <div className="city_title">{key_name}</div>
             {
                 list.map((v, i) =>
-                    <div key={i} className="city_label" >
+                    <div key={i} className="city_label"  onClick={(params) => {
+                        store.dispatch(setCityNameAction(v));
+                        this.props.history.push("/");
+                    }
+                    }>
                         {v}
                     </div>
                 )
@@ -146,6 +154,9 @@ export default class index extends Component {
         return (
             <Fragment>
                 <NavBar
+                    style={{
+                        backgroundColor:"#f6f5f6"
+                    }}
                     mode="light"
                     icon={<Icon type="left" />}
                     onLeftClick={() => window.history.go(-1)}
@@ -182,3 +193,11 @@ export default class index extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        cityName: state.cityName
+    }
+}
+
+
+export default connect(mapStateToProps,null)(withRouter(Index))
