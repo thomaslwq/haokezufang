@@ -1,0 +1,36 @@
+.city_list{
+    height: calc(100vh - 45px);
+    background-color: white;
+    .city_item{
+    
+        .city_title{
+            color:#ccc;
+            padding:10px;
+            height: 40px;
+            font-size: 1rem;
+        }
+        .city_label{
+            height: 40px;
+            font-size: 1rem;
+            padding:10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+    }
+    .city_key_arrs{
+        position:fixed;
+        top:50px;
+        right: 0;
+        .city_key_item{
+            padding: 5px;            
+        }
+        .active{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: green;
+            color:white;
+            border-radius: 50%;
+        }
+    }
+}
