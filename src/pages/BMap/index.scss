@@ -1,0 +1,101 @@
+.bMap_content {
+    height: calc(100vh - 45px);
+    display: flex;
+    flex-direction: column;
+
+    #allmap {
+        flex: 1;
+
+        .circle {
+            height: 50px;
+            width: 50px;
+            background-color: #23b973;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            border-radius: 50%;
+            border: 1px solid white;
+        }
+
+        .rect {
+            text-align: center;
+            background-color: #23b973;
+            color: white;
+            border: 1px solid white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    }
+
+    .map_house_list {
+        width: 100%;
+        background-color: white;
+        height: 0;
+        transition: height 1s;
+
+        .map_house_list_bottom {
+            background-color: white;
+            .map_house_list_header {
+                background-color: #c0c0c2;
+                padding:10px;
+                display: flex;
+                justify-content: space-between;
+                span:nth-child(1){
+                    font-weight: 600;
+                    font-size: 1rem;
+                }
+            }
+
+            .map_house_list_content {
+
+                .map_house_list_item {
+                    border-bottom: 1px solid #ccc;
+                    display: flex;
+                    .img_wrapper {
+                        padding: 10px;
+                        flex:1;
+                        img {
+                            width: 80%;
+                        }
+                    }
+
+                    .map_house_list_text {
+                        padding:10px;
+                        flex:7;
+                        .houseInfo1 {
+                            padding:3px;
+                            font-weight: 600;
+                            font-size:1rem;
+                        }
+
+                        .houseInfo2 {
+                            padding:3px;
+                            color:#ccc;
+                            font-size: 0.8rem;
+                        }
+
+                        .houseInfo3 {
+                            display: flex;
+                            color:green;
+                            span {
+                                padding:3px;
+                            }
+                        }
+
+                        .houseInfo4 {
+                            color:red;
+                            padding:3px;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .h40 {
+        height: 40vh;
+    }
+}
