@@ -13,15 +13,15 @@ import Test from "./pages/Test"
 import HKLayout from "./components/HKLaout"
 import store  from "./store"
 import { setCityNameAction } from "./store/actionCreator"
-
+import { connect } from "react-redux"
 
 //1. rcc 新建一個 App 組件
-export default class App extends Component {
+class App extends Component {
 
   componentDidMount(){
     var myCity = new window.BMap.LocalCity();
-    myCity.get(function(result){
-      let  cityName = result.name;
+    myCity.get((result) => {
+      let  cityName = this.props.cityName || result.name;
       store.dispatch(setCityNameAction(cityName));
     });
 
@@ -45,3 +45,11 @@ export default class App extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    cityName: state.cityName
+  }
+}
+
+export default connect(mapStateToProps,null)(App)
