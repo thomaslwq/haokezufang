@@ -1,0 +1,66 @@
+.list_container {
+    position: relative;
+    .list_header_searchInput {
+        position: fixed;
+        width: calc(100vw - 45px);
+        left: 45px;
+        top: 5px;
+
+        .icon-map {
+            color: green;
+        }
+    }
+    .list_content {
+        height: calc(100vh - 45px);
+        background-color: white;
+
+        .list_content_item {
+            padding: 10px;
+            display: flex;
+            border-bottom: 1px solid #ccc;
+
+            .list_content_img_wrapper {
+                flex: 1;
+
+                img {
+                    width: 80%;
+                }
+            }
+
+            .list_content_desc {
+                flex: 7;
+
+                .houseInfo1 {
+                    font-weight: 600;
+                    padding: 5px;
+                    font-size: 1rem;
+                }
+
+                .houseInfo2 {
+                    color: #ccc;
+                    padding: 5px;
+                    font-size: 0.8rem;
+                }
+
+                .houseInfo3 {
+                    padding: 5px;
+                    font-size: 0.8rem;
+                    color: green;
+
+                    span {
+                        display: inline-block;
+                        padding: 3px;
+                    }
+                }
+
+                .houseInfo4 {
+                    color: red;
+
+                    span {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

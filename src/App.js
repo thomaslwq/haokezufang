@@ -14,6 +14,7 @@ import HKLayout from "./components/HKLaout"
 import store  from "./store"
 import { setCityNameAction } from "./store/actionCreator"
 import { connect } from "react-redux"
+import "./App.css"
 
 //1. rcc 新建一個 App 組件
 class App extends Component {
